@@ -20,7 +20,7 @@ def get_fontawesome_5_css():
 
 
 def get_css():
-    css = [static('fontawesome_5/css/django-fontawesome.css'),]
+    css = []
     fontawesome_5_css = get_fontawesome_5_css()
     if fontawesome_5_css:
         css.append(fontawesome_5_css)
@@ -28,7 +28,7 @@ def get_css():
 
 
 def get_css_admin():
-    css = [static('fontawesome_5/css/django-fontawesome.css'), static('fontawesome_5/css/all.min.css')]
+    css = [static('fontawesome_5/css/all.min.css')]
     css_admin = getattr(settings, 'FONTAWESOME_5_CSS_ADMIN', None)
     if css_admin:
         css.append(css_admin)
