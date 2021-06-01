@@ -2,18 +2,11 @@ from __future__ import absolute_import
 
 from django import forms
 
-from .app_settings import get_css_admin, get_js_admin
-from .utils import get_icon_choices
-
-
-CHOICES = get_icon_choices()
+from fontawesome_5.app_settings import get_js_admin, get_css_admin
 
 
 class IconWidget(forms.Select):
-    template_name = 'fontawesome_5/select.html'
-
-    def __init__(self, attrs=None):
-        super(IconWidget, self).__init__(attrs, choices=CHOICES)
+    template_name = 'fontawesome_5/select_icon.html'
 
     class Media:
 

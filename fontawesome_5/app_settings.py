@@ -20,8 +20,10 @@ def get_css():
 
 
 def get_css_admin():
-    css = ['fontawesome_5/css/django-fontawesome.css',
-           'fontawesome_5/css/all.min.css']
+    css = [
+        'fontawesome_5/css/all.min.css',
+        'fontawesome_5/css/select2.min.css',
+    ]
     css_admin = getattr(settings, 'FONTAWESOME_5_CSS_ADMIN', None)
     if css_admin:
         if type(css_admin) == str:
@@ -32,7 +34,11 @@ def get_css_admin():
 
 
 def get_js_admin():
-    js = ['fontawesome_5/js/django-fontawesome.js',]
+    js = [
+        'fontawesome_5/js/jquery.min.js',
+        'fontawesome_5/js/select2.min.js',
+        'fontawesome_5/js/all.min.js',
+    ]
     js_admin = getattr(settings, 'FONTAWESOME_5_JS_ADMIN', None)
     if js_admin:
         if type(js_admin) == str:

@@ -1,0 +1,43 @@
+{% load static %}
+
+<select id="select-fontawesome-icon" name="{{ widget.name }}"></select>
+
+<script>
+    function get_fontawesome_icon_select() {
+        $.getJSON("{% static 'fontawesome_5/js/icons.json' %}", function (data) {
+            var options = new Array();
+            Object.keys(data).forEach(function (key) {
+                data[key].styles.forEach(function (style) {
+                    get_class = "";
+                    switch (style) {
+                        case "solid":
+                            get_class = "fas";
+                            break;
+                        case "regular":
+                            get_class = "far";
+                            break;
+                        case "brands":
+                            get_class = "fab";
+                            break;
+                    }
+                   options.push({
+                        id: `${get_class},${key}`,
+                        text: `<i class="${get_class} fa-${key}"></i> ${data[key].label}- <small>${data[key].search.terms}</small> `
+                    });
+                });
+            });
+
+            $('#select-fontawesome-icon').select2({
+                data: options,
+                escapeMarkup: function (markup) {
+                    return markup;
+                }
+            });
+            {% if widget.value %}
+                $('#select-fontawesome-icon').val('{{ widget.value.0 }}').trigger('change');
+            {% endif %}
+        });
+
+    }
+    window.addEventListener("load", get_fontawesome_icon_select, true);
+</script>
