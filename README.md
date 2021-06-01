@@ -5,6 +5,14 @@ Does support Django 3.0, which *django-fontawesome* will not.
 
 ![Clip of dropdown](https://github.com/BenjjinF/django-fontawesome/blob/master/docs/images/django-fontawesome-5.gif)
 
+## Latest Changes
+
+ - Updated Fontawesome to 5.15.3
+ - Updated for use with Font Awesome 5 ONLY
+ - Static files made all links relative to static_url using Django Static methods
+ - Removed Semantic UI renderers - this is a Fontawesome plugin...
+ - Added JS for Admin and refactored URLs to allow absolute and Static relative  
+
 ## Migration guide from django-fontawesome
 
 1. Remove all occurences of     {% fontawesome_stylesheet %}
@@ -44,14 +52,17 @@ Include Static Files
 
 ## Settings
 
-You can configure django-fontawesome to use another release/source/cdn by specifying::
+You can configure django-fontawesome to use another release/source/cdn by specifying the URLs below. 
+These can be absolute `https://cdn....` or relative to Django static `fontawsome_5/file.css` ::
 
-    FONTAWESOME_5_CSS = URL or None
+    FONTAWESOME_5_CSS = URL or [URLS,] or None
         default: 'fontawesome_5/css/django-fontawesome.css'
-    FONTAWESOME_5_CSS_ADMIN = URL or path
+    FONTAWESOME_5_JS = URL or [URLS,] or None
+        default: 'fontawesome_5/css/django-fontawesome.css'
+    FONTAWESOME_5_CSS_ADMIN = URL or [URLS,] or None
         default: None
-    FONTAWESOME_5_ICON_CLASS = 'default' or 'semantic_ui' 
-        default: 'default'
+    FONTAWESOME_5_JS_ADMIN = URL or [URLS,] or None
+        default: None
     FONTAWESOME_5_PREFIX = 'custom_prefix'
         default: 'fa'
 
@@ -98,50 +109,11 @@ Positional arguments: `icon` (required), `style_prefix` (default: 'fas')
      - `fa-10x`
   - spin `boolean`
   - title `string`
-  
-### Semantic UI Renderer
-
-Or you can use the `{% fa5_icon %}` template tag.
-
-    {% fa5_icon 'check' %}
-
-Required positional arguments: `icon`
-
-#### Key word arguments:
-  - class `extra custom classes`
-  - bordered `boolean`
-  - circular `boolean`
-  - colored `Semantic UI Colors`
-  - disabled `boolean`
-  - fitted `boolean`
-  - flipped
-    - `horizontal`
-    - `vertical`
-  - inverted `boolean`
-  - link `boolean`
-  - loading `boolean`
-  - rotated 
-   - `clockwise`
-   - `counterclockwise`
-  - pulse `boolean`
-  - rotate `integer`
-  - size 
-     - `fa-xs`
-     - `fa-sm`
-     - `fa-lg`
-     - `fa-2x`
-     - `fa-3x`
-     - `fa-5x`
-     - `fa-7x`
-     - `fa-10x`
-  - title `string`
 
 ## Credit
 
-Credit to https://github.com/redouane for the original ~
+  - https://github.com/redouane for the original
+  - https://github.com/BenjjinF for the current Fontawesome version 5
+  - https://github.com/aatrubilin for current fork/fixes with manifest files
 
-## Changes
- - Updated for use with Font Awesome 5
- - Removed PyYAML, Select2, and jQuery as dependencies
- - Static files tag includes static dependencies for use outside admin
- - Moved rendering logic to renderers
+

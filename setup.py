@@ -8,16 +8,15 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-fontawesome-5',
-    version='1.0.18',
+    version='2.0.0',
     packages=['fontawesome_5'],
     include_package_data=True,
     license='BSD License',
     description='A utility for using icons in models, forms, and templates.',
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://github.com/BenjjinF/django-fontawesome-5',
-    author='Benjamin Frost',
-    author_email='info@btfrost.com',
+    url='https://github.com/carderm/django-fontawesome-5',
+    author='Benjamin Frost, Michael Carder, ++',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

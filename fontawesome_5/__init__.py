@@ -1,11 +1,10 @@
-from .app_settings import get_icon_renderer
+from fontawesome_5.renderers import FontawesomeRenderer
 
-renderer = get_icon_renderer()
 
 class Icon:
 
     def as_html(self, **kwargs):
-        return renderer().render(self)
+        return FontawesomeRenderer().render(self)
 
     def __str__(self):
         return "{},{}".format(self.style_prefix, self.name)

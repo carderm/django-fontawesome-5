@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from django import forms
 
-from .app_settings import get_css_admin
+from .app_settings import get_css_admin, get_js_admin
 from .utils import get_icon_choices
 
 
@@ -17,9 +17,7 @@ class IconWidget(forms.Select):
 
     class Media:
 
-        js = (
-            'fontawesome_5/js/django-fontawesome.js',
-        )
+        js = get_js_admin()
 
         css = {
             'all': get_css_admin()
